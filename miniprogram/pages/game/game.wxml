@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="h1">游戏页占位（R1）</view>
+  <view class="desc">R2 起会接入 2048 核心逻辑与渲染。</view>
+  <button class="btn" bindtap="goResult">查看结果页</button>
+</view>

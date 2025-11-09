@@ -1,0 +1,18 @@
+{
+  "description": "wx-2048-quest weapp project",
+  "miniprogramRoot": "miniprogram/",
+  "packOptions": {
+    "ignore": [
+      { "type": "folder", "value": "web-sim" }
+    ]
+  },
+  "compileType": "miniprogram",
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "minified": true
+  },
+  "appid": "touristappid",
+  "projectname": "wx-2048-quest",
+  "libVersion": "latest"
+}

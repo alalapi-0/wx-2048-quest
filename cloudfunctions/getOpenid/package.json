@@ -1,0 +1,7 @@
+{
+  "name": "getOpenid",
+  "version": "0.1.0",
+  "description": "R1 placeholder, real cloud env in R5+",
+  "main": "index.js",
+  "license": "MIT"
+}

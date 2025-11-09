@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="h1">首页就绪（R1）</view>
+  <view class="desc">这是最小可运行骨架。点击进入游戏页占位。</view>
+  <button class="btn" bindtap="goGame">进入游戏页</button>
+</view>
