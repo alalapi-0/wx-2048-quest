@@ -38,3 +38,24 @@ MIT License。
    - AppID 使用 `touristappid`；
    - 打开后首页显示“首页就绪（R1）”，可导航至游戏与结果占位页；
    - 预览二维码仅作调试用途，云能力将在 R5+ 接入。
+
+## 进度 R2
+- 在 `/core` 实现了平台无关的 2048 引擎（ESM）
+- `/web-sim` 可交互验收：关卡预设、方向移动、seed 复现
+- 小程序端仍为占位，R3 起接入关卡与渲染
+
+### 引擎用法简例
+```js
+import { createGame, DIRECTIONS } from "./core/game.js";
+const g = createGame({ gridSize: 2, spawnValues: [2], target: 16, seed: "demo" });
+g.move(DIRECTIONS.LEFT);
+console.log(g.getSnapshot());
+```
+
+---
+
+## 本轮验收标准
+- 打开 `web-sim/index.html`，可选择关卡与 seed，按四方向移动，界面与日志联动  
+- `L1` 预设只生成 2  
+- 更换 seed 后，重复同样操作步骤，网格演进一致  
+- 代码仅新增或修改本轮列出的文件，未引入二进制或打包产物  
