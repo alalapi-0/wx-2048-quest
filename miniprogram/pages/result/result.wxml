@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="h1">结果页占位（R1）</view>
+  <view class="desc">通关判定、统计等会在 R8+ 实装。</view>
+  <button class="btn" bindtap="goHome">返回首页</button>
+</view>
