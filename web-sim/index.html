@@ -2,21 +2,56 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <title>wx-2048-quest / web-sim (R1)</title>
+  <title>wx-2048-quest / web-sim (R2)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif; margin: 32px; background:#f7f7f7;}
-    .card { background:#fff; padding:24px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.06); max-width:680px; }
-    h1 { margin:0 0 8px; font-size:22px; }
-    p { margin:6px 0; color:#555; }
-    code { background:#f0f0f0; padding:2px 6px; border-radius:6px; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif; margin: 24px; background:#f7f7f7;}
+    .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .card { background:#fff; padding:16px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.06); max-width:920px; }
+    .grid { display:grid; gap:8px; margin-top:12px; }
+    .cell { width:64px; height:64px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:#eee; font-weight:600; }
+    .ctrls button { margin-right:8px; }
+    .log { margin-top:12px; background:#111; color:#ddd; padding:8px; border-radius:8px; height:160px; overflow:auto; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px;}
+    label { font-size:14px; color:#444; }
+    select,input { padding:4px 6px; }
+    .tag { background:#efefef; border-radius:6px; padding:2px 6px; margin-left:8px; font-size:12px; color:#666; }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>wx-2048-quest ready（R1）</h1>
-    <p>这是纯前端验收页，R1 仅用于确认仓库与打包忽略配置。</p>
-    <p>后续 R2 起会引入 <code>/core</code> 的逻辑做按键/按钮模拟。</p>
+    <h2>web-sim 验收（R2）</h2>
+    <div class="row">
+      <label>预设关卡：
+        <select id="preset">
+          <option value="L1">L1 2x2 仅 2，目标 16</option>
+          <option value="L2">L2 3x3 2/4，目标 64</option>
+          <option value="L3">L3 4x4 标准 2048</option>
+        </select>
+      </label>
+      <label>Seed：
+        <input id="seed" placeholder="可填入任意字符串" />
+      </label>
+      <button id="apply">应用设置并重开</button>
+      <span class="tag" id="meta"></span>
+    </div>
+
+    <div class="row ctrls" style="margin-top:10px;">
+      <button id="up">↑ 上</button>
+      <button id="left">← 左</button>
+      <button id="right">右 →</button>
+      <button id="down">下 ↓</button>
+      <button id="restart">重开</button>
+    </div>
+
+    <div id="grid" class="grid"></div>
+
+    <div style="margin-top:10px;">
+      <span id="status"></span>
+    </div>
+
+    <div class="log" id="log"></div>
   </div>
+
+  <script type="module" src="./sim.js"></script>
 </body>
 </html>
